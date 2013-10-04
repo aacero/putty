@@ -1430,11 +1430,19 @@ void request_callback_notifications(toplevel_callback_notify_fn_t notify,
 #endif
 
 /* SURROGATE PAIR */
+#ifndef HIGH_SURROGATE_START
+# define HIGH_SURROGATE_START 0xd800
+#endif
+#ifndef HIGH_SURROGATE_END
+# define HIGH_SURROGATE_END 0xdbff
+#endif
+#ifndef LOW_SURROGATE_START
+# define LOW_SURROGATE_START 0xdc00
+#endif
+#ifndef LOW_SURROGATE_END
+# define LOW_SURROGATE_END 0xdfff
+#endif
 #ifndef IS_HIGH_SURROGATE
-#define HIGH_SURROGATE_START 0xd800
-#define HIGH_SURROGATE_END 0xdbff
-#define LOW_SURROGATE_START 0xdc00
-#define LOW_SURROGATE_END 0xdfff
 
 #define IS_HIGH_SURROGATE(wch) (((wch) >= HIGH_SURROGATE_START) && \
                                 ((wch) <= HIGH_SURROGATE_END))
